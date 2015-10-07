@@ -1,21 +1,43 @@
 package com.example.valentine.dailymotivaiton;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
-public class Qoutes extends Activity {
+import com.twitter.sdk.android.tweetui.SearchTimeline;
+import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
+
+public class Qoutes extends ListActivity {
 String tag="Qoutes";
+    String SEARCH_QUERY;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(tag, "onCreate");
-
         setContentView(R.layout.activity_qoutes);
+
+        SEARCH_QUERY = getResources().getString(R.string.twitter_search);
+        setUpTimeline();
+
+
     }
+    private void setUpTimeline() {
+
+        SearchTimeline searchTimeline = new SearchTimeline.Builder().query(SEARCH_QUERY).build();
+
+        final TweetTimelineListAdapter timelineAdapter = new TweetTimelineListAdapter(this, searchTimeline);
+
+        ListView timelineView = (ListView) findViewById(android.R.id.list);
+        timelineView.setEmptyView(findViewById(R.id.empty_timeline));
+        timelineView.setAdapter(timelineAdapter);
+
+    }
+
     @Override
     protected void onRestart(){
         super.onRestart();

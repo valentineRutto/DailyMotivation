@@ -3,6 +3,7 @@
     package="com.example.valentine.dailymotivaiton" >
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -28,6 +29,10 @@
             android:name=".Qoutes"
             android:label="@string/title_activity_qoutes" >
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="a52e7d1b559ea35cf6c66c368440e365b2605a7f" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
