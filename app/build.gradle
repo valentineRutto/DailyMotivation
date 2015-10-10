@@ -40,5 +40,6 @@ dependencies {
     compile('com.twitter.sdk.android:twitter:1.8.0@aar') {
         transitive = true;
     }
+    compile 'com.android.support:design:23.+'
     compile 'com.android.support:recyclerview-v7:+'
 }

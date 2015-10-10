@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Video extends Activity {
+public class Video extends AppCompatActivity {
 String tag="Video";
     @Override
     protected void onCreate(Bundle savedInstanceState) {

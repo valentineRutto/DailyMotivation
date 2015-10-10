@@ -23,17 +23,17 @@ Log.i(tag, "onCreate");
         TabHost tabHost=getTabHost();
 
         TabHost.TabSpec tab1=tabHost.newTabSpec("tab1");
-        tab1.setIndicator("Audio");
+        tab1.setIndicator("AUDIO");
         Intent i1=new Intent(MainActivity.this,Audio.class);
         tab1.setContent(i1);
 
         TabHost.TabSpec tab2=tabHost.newTabSpec("tab2");
-        tab2.setIndicator("Video");
+        tab2.setIndicator("VIDEO");
         Intent i2=new Intent(MainActivity.this,Video.class);
         tab2.setContent(i2);
 
         TabHost.TabSpec tab3=tabHost.newTabSpec("tab3");
-        tab3.setIndicator("Quotes");
+        tab3.setIndicator("QUOTES");
         Intent i3=new Intent(MainActivity.this,Qoutes.class);
         tab3.setContent(i3);
 

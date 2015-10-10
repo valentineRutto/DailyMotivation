@@ -2,11 +2,12 @@ package com.example.valentine.dailymotivaiton;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Audio extends Activity {
+public class Audio extends AppCompatActivity {
 String tag="Audio";
     @Override
     protected void onCreate(Bundle savedInstanceState) {

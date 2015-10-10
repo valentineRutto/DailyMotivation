@@ -1,25 +1,39 @@
 package com.example.valentine.dailymotivaiton;
 
-import android.app.Activity;
-import android.app.ListActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.twitter.sdk.android.tweetui.SearchTimeline;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 
-public class Qoutes extends ListActivity {
+public class Qoutes extends AppCompatActivity {
 String tag="Qoutes";
     String SEARCH_QUERY;
+    private RecyclerView mRecyclerView;
+    private MyRecyclerAdapter adapter;
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(tag, "onCreate");
         setContentView(R.layout.activity_qoutes);
+
+        // Initialize recycler view
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.VISIBLE);
+
 
         SEARCH_QUERY = getResources().getString(R.string.twitter_search);
         setUpTimeline();
