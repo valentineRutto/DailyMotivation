@@ -1,6 +1,7 @@
 package com.example.valentine.dailymotivaiton;
 
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -78,6 +79,13 @@ String tag="Video";
         if (id == R.id.action_settings) {
             return true;
         }
+        //This add the back functionality for Home button
+
+        if (id == android.R.id.home){
+
+            NavUtils.navigateUpFromSameTask(this);
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
