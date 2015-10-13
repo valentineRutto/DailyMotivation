@@ -5,9 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class Video extends AppCompatActivity {
 String tag="Video";
@@ -79,13 +82,42 @@ String tag="Video";
         return super.onOptionsItemSelected(item);
     }
 
-    private class MyAdapter extends RecyclerView.Adapter {
-        public MyAdapter(String[] strings) {
+    public static class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
+
+        private String[] mDataset;
+
+        public static class ViewHolder extends RecyclerView.ViewHolder{
+
+            public View view;
+
+            public TextView title;
+
+            public ViewHolder(View v){
+                super(v);
+
+                view=v;
+
+                title=(TextView)v.findViewById(R.id.card_title);
+            }
+
+        }
+
+        public MyAdapter(String[]myDataset){
+
+            mDataset=myDataset;
+
         }
 
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return null;
+        public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
+            View cardview= LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview,parent,false);
+            return new ViewHolder(cardview);
+
+        }
+
+        @Override
+        public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
+
         }
 
         @Override
