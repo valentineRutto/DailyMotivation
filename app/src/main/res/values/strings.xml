@@ -2,6 +2,7 @@
     <string name="app_name">Dailymotivaiton</string>
 
     <string name="loading">LOADING..</string>
+    <string name="DEVELOPER_KEY">AIzaSyA1gKR7EJRXf1Z4b0ik9vm0c4qx3Tr7UyE</string>
     <string name="hello_world">helloworld</string>
     <string name="twitter_search">#youoweyou</string>
     <string name="action_settings">Settings</string>
