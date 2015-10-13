@@ -83,29 +83,21 @@ String tag="Video";
     }
 
     public static class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
-
         private String[] mDataset;
 
         public static class ViewHolder extends RecyclerView.ViewHolder{
-
             public View view;
-
             public TextView title;
 
             public ViewHolder(View v){
                 super(v);
-
                 view=v;
-
                 title=(TextView)v.findViewById(R.id.card_title);
             }
-
         }
 
         public MyAdapter(String[]myDataset){
-
             mDataset=myDataset;
-
         }
 
         @Override
@@ -116,18 +108,19 @@ String tag="Video";
         }
 
         @Override
-        public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
+
+        public void onBindViewHolder(ViewHolder holder,int position){
+
+            holder.title.setText("Card"+(position+1));
 
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        }
+        public int getItemCount(){
 
-        @Override
-        public int getItemCount() {
-            return 0;
+            return mDataset.length;
+
         }
     }
 }
