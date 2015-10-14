@@ -29,6 +29,10 @@
             android:name=".Qoutes"
             android:label="@string/title_activity_qoutes" >
         </activity>
+        <activity
+            android:name=".CustomLightboxActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme.Translucent" />
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="a52e7d1b559ea35cf6c66c368440e365b2605a7f" />

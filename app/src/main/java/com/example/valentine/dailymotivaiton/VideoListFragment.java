@@ -39,16 +39,17 @@ public class VideoListFragment extends ListFragment {
 
         switch (position) {
             case 0:
+                //Opens in the StandAlonePlayer but in "Light box" mode
+                startActivity(YouTubeStandalonePlayer.createVideoIntent(getActivity(),
+                        DEVELOPER_KEY, video.id, 0, true, true));
+
+
+                break;
+            case 1:
                 //Check whether we can actually open YT
                 if (YouTubeIntents.canResolvePlayVideoIntent(getActivity())) {
                     //Opens the video in the YouTube app
                     startActivity(YouTubeIntents.createPlayVideoIntent(context, video.id));
-                }
-                break;
-            case 1:
-                if (YouTubeIntents.canResolvePlayVideoIntentWithOptions(getActivity())) {
-                    //Opens in the YouTube app in fullscreen and returns to this app once the video finishes
-                    startActivity(YouTubeIntents.createPlayVideoIntentWithOptions(context, video.id, true, true));
                 }
                 break;
             case 2:
@@ -57,9 +58,10 @@ public class VideoListFragment extends ListFragment {
                         DEVELOPER_KEY, video.id));
                 break;
             case 3:
-                //Opens in the StandAlonePlayer but in "Light box" mode
-                startActivity(YouTubeStandalonePlayer.createVideoIntent(getActivity(),
-                        DEVELOPER_KEY, video.id, 0, true, true));
+                if (YouTubeIntents.canResolvePlayVideoIntentWithOptions(getActivity())) {
+                    //Opens in the YouTube app in fullscreen and returns to this app once the video finishes
+                    startActivity(YouTubeIntents.createPlayVideoIntentWithOptions(context, video.id, true, true));
+                }
                 break;
 
 //            case 4:
